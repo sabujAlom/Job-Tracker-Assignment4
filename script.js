@@ -219,7 +219,7 @@
 
           <button onclick="changeStatus(${job.id}, 'rejected')"
             class="px-3 py-1 text-sm rounded border
-            ${job.status === "rejected" ? "bg-red-500 text-white border-red-500" : "border-red-500 text-red-600"}">
+            ${job.status === "rejected" ? "bg-red-500 text-white border-red-500" : "border-red-500 text-red-500"}">
             Rejected
           </button>
              
@@ -231,3 +231,57 @@
             updateDashboard();
 
        }
+
+
+
+        function changeTab(tab) {
+        currentTab = tab;
+
+        document.getElementById("allTab").className =
+          tab === "all"
+            ? "pb-2 border-b-2 border-blue-600 text-blue-600"
+            : "pb-2 text-gray-500";
+
+        document.getElementById("interviewTab").className =
+          tab === "interview"
+            ? "pb-2 border-b-2 border-blue-600 text-blue-600"
+            : "pb-2 text-gray-500";
+
+        document.getElementById("rejectedTab").className =
+          tab === "rejected"
+            ? "pb-2 border-b-2 border-blue-600 text-blue-600"
+            : "pb-2 text-gray-500";
+
+        renderJobs();
+      }
+
+      function changeStatus(id, newStatus) {
+        const job = jobs.find((job) => job.id === id);
+
+        if (job.status === newStatus) {
+          job.status = null; // toggle remove
+        } else {
+          job.status = newStatus;
+        }
+
+        renderJobs();
+      }
+
+      function deleteJob(id) {
+        jobs = jobs.filter((job) => job.id !== id);
+        renderJobs();
+      }
+
+      function updateDashboard() {
+        document.getElementById("totalCount").innerText = jobs.length;
+
+        document.getElementById("interviewCount").innerText = jobs.filter(
+          (job) => job.status === "interview",
+        ).length;
+
+        document.getElementById("rejectedCount").innerText = jobs.filter(
+          (job) => job.status === "rejected",
+        ).length;
+      }
+
+      renderJobs();
