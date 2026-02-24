@@ -127,7 +127,7 @@
           location: "Sweden",
           type: "Full Time",
           salary: "66k",
-          description: "Improve music platform.",
+          description: "Work on cutting-edge web applications using React and Tailwind CSS.",
           status: null,
         },
         {
