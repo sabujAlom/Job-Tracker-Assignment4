@@ -165,4 +165,34 @@
       ];
 
       
-      
+       let currentTab = "all";
+
+       function renderJobs(){
+        const container = document.getElementById("jobContainer");
+        container.innerHTML = "";
+
+        let filteredJobs;
+
+        if (currentTab === "all") {
+          filteredJobs = jobs;
+        } else {
+          filteredJobs = jobs.filter((job) => job.status === currentTab);
+        }
+
+         document.getElementById("sectionCount").innerText =
+          filteredJobs.length + " Jobs";
+
+
+          if (filteredJobs.length === 0) {
+          container.innerHTML = `
+           <div class="col-span-2 bg-white p-10 rounded-xl shadow text-center">
+           <div class="mb-4 flex justify-center items-center"><img src="./images/jobs.png" alt="loding..."></div>
+           <h3 class="text-2xl font-semibold">No jobs available</h3>
+           <p class="text-gray-500">Check back soon for new job opportunities</p>
+          </div>
+          `;
+          updateDashboard();
+          return;
+        }
+
+       }
