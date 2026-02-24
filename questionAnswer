@@ -1,0 +1,38 @@
+1. Difference between selection methods
+
+getElementById --- selects one element by id.
+
+getElementsByClassName --- selects multiple elements by class (returns collection).
+
+querySelector --- selects first match using CSS selector.
+
+querySelectorAll --- selects all matches using CSS selector.
+
+
+
+2. Create and insert element
+
+Use createElement() to create.
+Add content if needed.
+Use append() or appendChild() to insert into the DOM.
+
+
+
+3. Event Bubbling
+
+Event starts from the clicked element and moves upward to its parent elements.
+
+
+
+4. Event Delegation
+
+Add event listener to parent instead of children.
+Parent handles child events using bubbling.
+Useful for performance and dynamic elements.
+
+
+5. preventDefault vs stopPropagation
+
+preventDefault() ------ stops browser’s default action.
+
+stopPropagation()  ------ stops event from going to parent.
