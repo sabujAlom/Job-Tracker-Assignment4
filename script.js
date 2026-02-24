@@ -195,4 +195,15 @@
           return;
         }
 
+          filteredJobs.forEach((job) => {
+            container.innerHTML += `
+            <div class="bg-white p-6 rounded-xl shadow relative">
+
+             <button onclick="deleteJob(${job.id})"
+             class="absolute top-4 right-4 border rounded-full w-[32px] h-[32px] grid justify-center items-center border-gray-300"><img src="./images/delete.png" alt="loding..."></button>
+
+            
+            </div>
+            `;})
+
        }
