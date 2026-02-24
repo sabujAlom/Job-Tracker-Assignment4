@@ -195,15 +195,39 @@
           return;
         }
 
-          filteredJobs.forEach((job) => {
-            container.innerHTML += `
-            <div class="bg-white p-6 rounded-xl shadow relative">
+        filteredJobs.forEach((job) => {
+          container.innerHTML += `
+          <div class="bg-white p-6 rounded-xl shadow relative">
 
              <button onclick="deleteJob(${job.id})"
              class="absolute top-4 right-4 border rounded-full w-[32px] h-[32px] grid justify-center items-center border-gray-300"><img src="./images/delete.png" alt="loding..."></button>
 
+
+             <h3 class="text-lg font-bold text-blue-600">${job.company}</h3>
+             <p class="text-sm text-gray-500 mb-2">${job.position} . ${job.location}</p>
+             <p class="text-sm mb-2">${job.type} . ${job.salary}</p>
+             <p class="text-gray-600 text-sm mb-4">${job.description}</p>
+
+
+             <div class="flex gap-3">
+               
+          <button onclick="changeStatus(${job.id}, 'interview')"
+            class="px-3 py-1 text-sm rounded border
+            ${job.status === "interview" ? "bg-green-500 text-white border-green-500" : "border-green-500 text-green-600"}">
+            Interview
+          </button>
+
+          <button onclick="changeStatus(${job.id}, 'rejected')"
+            class="px-3 py-1 text-sm rounded border
+            ${job.status === "rejected" ? "bg-red-500 text-white border-red-500" : "border-red-500 text-red-600"}">
+            Rejected
+          </button>
+             
+             </div>
             
-            </div>
+        </div>
             `;})
+
+            updateDashboard();
 
        }
