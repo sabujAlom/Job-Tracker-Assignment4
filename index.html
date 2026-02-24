@@ -8,11 +8,82 @@
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
-      type="text/css"/>
+      type="text/css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
+    <!-- google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: "Geist", sans-serif;
+      }
+    </style>
   </head>
-  <body>
-    
+  <body class="bg-gray-100 min-h-screen p-6">
+    <div class="max-w-6xl mx-auto">
+      <!-- ...........dashboard.............. -->
+      <h1 class="text-2xl font-bold mb-6">Job Application Tracker</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        <div class="bg-white p-5 rounded-xl shadow text-center">
+          <p class="text-gray-500">Total Jobs</p>
+          <h2 id="totalCount" class="text-2xl font-bold text-blue-600">0</h2>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow text-center">
+          <p class="text-gray-500">Interview</p>
+          <h2 id="interviewCount" class="text-2xl font-bold text-green-600">
+            0
+          </h2>
+        </div>
+
+        <div class="bg-white p-5 rounded-xl shadow text-center">
+          <p class="text-gray-500">Rejected</p>
+          <h2 id="rejectedCount" class="text-2xl font-bold text-red-600">0</h2>
+        </div>
+      </div>
+
+      <!-- ..............available jobs........... -->
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold">Available Jobs</h2>
+        <span id="sectionCount" class="text-gray-600"></span>
+      </div>
+
+      <!-- ..............button............... -->
+      <div class="flex gap-6 border-b border-gray-400 mb-6">
+        <button
+          onclick="changeTab('all')"
+          id="allTab"
+          class="pb-2 border-b-2 border-blue-600 text-blue-600">
+          All
+        </button>
+
+        <button
+          onclick="changeTab('interview')"
+          id="interviewTab"
+          class="pb-2 text-gray-500">
+          Interview
+        </button>
+
+        <button
+          onclick="changeTab('rejected')"
+          id="rejectedTab"
+          class="pb-2 text-gray-500">
+          Rejected
+        </button>
+      </div>
+
+
+      
+    </div>
+
+    <!-- js script link -->
+    <script src="./script.js"></script>
   </body>
 </html>
